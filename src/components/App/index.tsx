@@ -1,6 +1,7 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import { RandomWalker } from "../RandomWalker";
+import { RandomVectors } from "../RandomVectors";
 
 export default function App() {
   return (
@@ -14,7 +15,7 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      <RandomWalker />
+      <RandomVectors />
     </Box>
   );
 }
