@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import { RandomWalker } from "../RandomWalker";
 import { RandomVectors } from "../RandomVectors";
 import { MoverComponent } from "../Mover";
-import { GravityComponent } from "../Mass&Acc";
+import { GravityComponent } from "../Friction";
 
 export default function App() {
   return (
