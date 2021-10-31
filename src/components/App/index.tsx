@@ -4,6 +4,7 @@ import { RandomWalker } from "../RandomWalker";
 import { RandomVectors } from "../RandomVectors";
 import { MoverComponent } from "../Mover";
 import { GravityComponent } from "../Friction";
+import { Drag } from "../Drag";
 
 export default function App() {
   return (
@@ -17,7 +18,7 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      <GravityComponent />
+      <Drag />
     </Box>
   );
 }
