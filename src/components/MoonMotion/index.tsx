@@ -33,21 +33,26 @@ export const MoonMotion: React.FC<ComponentProps> = (
 
     const moon_props = {
       x: earth_props.x - 385,
-      y: earth_props.y - 385
+      y: earth_props.y - 385,
+      mass: earth_props.mass * 0.012,
+      radius: earth_props.radius / 3.7
     };
 
-    moon = new Moon(moon_props.x, moon_props.y, 5, 1.737, p5);
+    moon = new Moon(moon_props.x, moon_props.y, moon_props.mass, moon_props.radius, p5);
 
   };
 
   const draw = (p5: p5Types) => {
     p5.background(0);
-    if (earth) {
-      earth.show(p5);
-    }
 
     if (moon) {
+      moon.update(p5);
       moon.show(p5);
+    }
+
+    if (earth) {
+      earth.attract(moon, p5);
+      earth.show(p5);
     }
   };
 
