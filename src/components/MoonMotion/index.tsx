@@ -23,8 +23,8 @@ export const MoonMotion: React.FC<ComponentProps> = (
     );
 
     const earth_props = {
-      x: p5.width / 2,
-      y: p5.height / 2,
+      x: 0,
+      y: 0,
       mass: 597.42,
       radius: 6.371
     };
@@ -43,8 +43,8 @@ export const MoonMotion: React.FC<ComponentProps> = (
   };
 
   const draw = (p5: p5Types) => {
-    p5.background(0, 5);
-
+    p5.translate(p5.width / 2, p5.height / 2);
+    p5.background(0);
     if (earth) {
       // earth.attract(moon, p5);
       earth.show(p5);
