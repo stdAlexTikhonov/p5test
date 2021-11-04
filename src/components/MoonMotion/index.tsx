@@ -22,19 +22,19 @@ export const MoonMotion: React.FC<ComponentProps> = (
       canvasParentRef
     );
 
-    const earth_position = {
+    const earth_props = {
       x: p5.width / 2,
       y: p5.height / 2,
     };
 
-    earth = new Earth(earth_position.x, earth_position.y, 50, 6.371, p5);
+    earth = new Earth(earth_props.x, earth_props.y, 50, 6.371, p5);
 
-    const moon_position = {
-      x: earth_position.x - 385,
-      y: earth_position.y - 385
+    const moon_props = {
+      x: earth_props.x - 385,
+      y: earth_props.y - 385
     };
 
-    moon = new Moon(moon_position.x, moon_position.y, 5, 1.737, p5);
+    moon = new Moon(moon_props.x, moon_props.y, 5, 1.737, p5);
 
   };
 
