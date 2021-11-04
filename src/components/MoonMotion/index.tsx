@@ -25,9 +25,11 @@ export const MoonMotion: React.FC<ComponentProps> = (
     const earth_props = {
       x: p5.width / 2,
       y: p5.height / 2,
+      mass: 597.42,
+      radius: 6.371
     };
 
-    earth = new Earth(earth_props.x, earth_props.y, 50, 6.371, p5);
+    earth = new Earth(earth_props.x, earth_props.y, earth_props.mass, earth_props.radius, p5);
 
     const moon_props = {
       x: earth_props.x - 385,
