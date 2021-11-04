@@ -1,4 +1,5 @@
 import p5Types from "p5";
+import { Earth } from "./Earth";
 
 export class Moon {
     pos: p5Types.Vector;
@@ -11,7 +12,8 @@ export class Moon {
         this.pos = p5.createVector(x, y);
         this.mass = m;
         this.r = r
-        this.vel = p5.createVector(0, 0);
+        this.vel = p5.createVector(p5.random(-1, 1), p5.random(-1, 1));
+        this.vel.setMag(3);
         this.acc = p5.createVector(0, 0);
     }
 
@@ -20,8 +22,11 @@ export class Moon {
         this.acc.add(f);
     }
 
-    update(p5: p5Types) {
+    update(p5: p5Types, earth: Earth) {
+        this.acc = p5Types.Vector.sub(earth.pos, this.pos);
+        this.acc.setMag(0.01)
         this.vel.add(this.acc);
+        // this.vel.limit(2);
         this.pos.add(this.vel);
         this.acc.set(0, 0);
     }

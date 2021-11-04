@@ -8,7 +8,7 @@ export class Mover {
   r: number;
   constructor(x: number, y: number, m: number, p5: p5Types) {
     this.pos = p5.createVector(x, y);
-    this.vel = p5.createVector(p5.random(2), p5.random(2));
+    this.vel = p5.createVector(0.2, 0.2);
     this.acc = p5.createVector(0, 0);
     this.mass = m;
     this.r = p5.sqrt(this.mass) * 2

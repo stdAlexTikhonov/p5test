@@ -18,7 +18,7 @@ export const MoonMotion: React.FC<ComponentProps> = (
 
   const setup = (p5: p5Types, canvasParentRef: Element) => {
 
-    p5.createCanvas(window.innerWidth / 2, window.innerHeight - 100).parent(
+    p5.createCanvas(window.innerWidth, window.innerHeight).parent(
       canvasParentRef
     );
 
@@ -43,17 +43,19 @@ export const MoonMotion: React.FC<ComponentProps> = (
   };
 
   const draw = (p5: p5Types) => {
-    p5.background(0);
+    p5.background(0, 5);
 
-    if (moon) {
-      moon.update(p5);
+    if (earth) {
+      // earth.attract(moon, p5);
+      earth.show(p5);
+    }
+
+    if (moon && earth) {
+      moon.update(p5, earth);
       moon.show(p5);
     }
 
-    if (earth) {
-      earth.attract(moon, p5);
-      earth.show(p5);
-    }
+
   };
 
   return <Sketch setup={setup} draw={draw} />;
