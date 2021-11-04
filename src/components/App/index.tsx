@@ -8,6 +8,7 @@ import { Drag } from "../Drag";
 import { GravitationalAttraction } from "../GravitationalAttraction";
 import { MoonMotion } from "../MoonMotion";
 
+
 export default function App() {
   return (
     <Box
@@ -18,10 +19,12 @@ export default function App() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        overflow: 'hidden'
+        overflow: 'hidden',
+        position: 'relative'
       }}
     >
       <MoonMotion />
+
     </Box>
   );
 }

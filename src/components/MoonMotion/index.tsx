@@ -44,13 +44,16 @@ export const MoonMotion: React.FC<ComponentProps> = (
 
   const draw = (p5: p5Types) => {
     p5.translate(p5.width / 2, p5.height / 2);
-    p5.background(0);
+
+    p5.scale(0.7);
+    p5.background(0, 5);
     if (earth) {
       // earth.attract(moon, p5);
       earth.show(p5);
     }
 
     if (moon && earth) {
+
       moon.update(p5, earth);
       moon.show(p5);
     }
