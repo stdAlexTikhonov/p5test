@@ -12,8 +12,7 @@ export class Moon {
         this.pos = p5.createVector(x, y);
         this.mass = m;
         this.r = r
-        this.vel = p5.createVector(p5.random(-1, 1), p5.random(-1, 1));
-        this.vel.setMag(3);
+        this.vel = p5.createVector(2, -1.5);
         this.acc = p5.createVector(0, 0);
     }
 
