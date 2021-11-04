@@ -6,6 +6,7 @@ import { MoverComponent } from "../Mover";
 import { GravityComponent } from "../Friction";
 import { Drag } from "../Drag";
 import { GravitationalAttraction } from "../GravitationalAttraction";
+import { MoonMotion } from "../MoonMotion";
 
 export default function App() {
   return (
@@ -19,7 +20,7 @@ export default function App() {
         alignItems: "center",
       }}
     >
-      <GravitationalAttraction />
+      <MoonMotion />
     </Box>
   );
 }

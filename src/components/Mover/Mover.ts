@@ -7,17 +7,16 @@ export class Mover {
   constructor(x: number, y: number, p5: p5Types) {
     this.pos = p5.createVector(x, y);
     this.vel = p5.createVector(p5.random(-1, 1), p5.random(-1, 1));
-    this.vel.mult(3);
-    this.acc = p5.createVector(p5.random(-1, 1), p5.random(-1, 1));
+
+    this.acc = p5.createVector(0, 0);
   }
 
   update(p5: p5Types) {
-    let mouse = p5.createVector(p5.mouseX, p5.mouseY);
-    this.acc = p5Types.Vector.sub(mouse, this.pos);
+    // let mouse = p5.createVector(p5.mouseX, p5.mouseY);
+    // this.acc = p5Types.Vector.sub(mouse, this.pos);
 
-    this.acc.setMag(0.1);
+    // this.acc.setMag(0.1);
     this.vel.add(this.acc);
-    // this.vel.limit(2);
     this.pos.add(this.vel);
 
   }
