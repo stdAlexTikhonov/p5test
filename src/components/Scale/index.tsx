@@ -28,6 +28,7 @@ export const MoonMotion: React.FC<ComponentProps> = (
   let moonFocus: boolean = false;
   let showPath: boolean = false;
   let scale: number = 0.7;
+  let zoom: boolean = false;
 
 
 
@@ -81,6 +82,12 @@ export const MoonMotion: React.FC<ComponentProps> = (
       else focus.setMag(magnitute);
     }
 
+    if (zoom) {
+      scale = scale < 40 ? scale + 0.1 : 40.7;
+    } else {
+      scale = scale > 1 ? scale - 0.1 : 0.7;
+    }
+
     const transformed_x = p5.width / 2 - focus.x * scale;
     const transformed_y = p5.height / 2 - focus.y * scale;
     p5.translate(transformed_x, transformed_y);
@@ -115,6 +122,8 @@ export const MoonMotion: React.FC<ComponentProps> = (
 
   const handleScaleMinus = () => { scale = scale > 1 ? scale - 1 : 0.7; }
 
+  const toggleZoom = () => { zoom = !zoom; }
+
   return <>
     <Sketch setup={setup} draw={draw} />
     <Box sx={{ position: 'absolute', top: 0, left: 0 }}>
@@ -123,6 +132,7 @@ export const MoonMotion: React.FC<ComponentProps> = (
       <Button onClick={handleShowPath}>Toggle path</Button>
       <Button onClick={handleScalePlus}>+</Button>
       <Button onClick={handleScaleMinus}>-</Button>
+      <Button onClick={toggleZoom}>ZOOM</Button>
     </Box>
 
   </>;
