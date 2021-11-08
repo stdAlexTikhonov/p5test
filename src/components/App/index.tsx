@@ -6,7 +6,7 @@ import { MoverComponent } from "../Mover";
 import { GravityComponent } from "../Friction";
 import { Drag } from "../Drag";
 import { GravitationalAttraction } from "../GravitationalAttraction";
-import { MoonMotion } from "../MoonViewport";
+import { MoonMotion } from "../TrackMoon";
 
 
 export default function App() {
@@ -15,7 +15,7 @@ export default function App() {
       sx={{
         width: "100%",
         height: "100vh",
-        backgroundColor: "primary.dark",
+        backgroundColor: "black",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
