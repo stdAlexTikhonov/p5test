@@ -28,7 +28,7 @@ export const MoonMotion: React.FC<ComponentProps> = (
   let moonFocus: boolean = false;
   let showPath: boolean = false;
   let scale: number = 0.7;
-  let zoom: boolean = false;
+  let zoom: boolean = true;
 
 
 
@@ -71,16 +71,24 @@ export const MoonMotion: React.FC<ComponentProps> = (
 
     if (moonFocus) {
 
-
       if (magnitute < moon.pos.mag()) {
+        showPath = false;
         magnitute += 10;
         focus.setMag(magnitute);
+      } else {
+        focus.x = moon.pos.x;
+        focus.y = moon.pos.y;
       }
-      else { focus.x = moon.pos.x; focus.y = moon.pos.y; }
 
     } else {
-      if (magnitute < 0) focus.setMag(0);
-      else { magnitute -= 10; focus.setMag(magnitute); }
+
+      if (magnitute < 0) {
+        focus.setMag(0);
+      } else {
+        showPath = false;
+        magnitute -= 10;
+        focus.setMag(magnitute);
+      }
     }
 
     if (zoom) {
