@@ -6,7 +6,7 @@ import { MoverComponent } from "../Mover";
 import { GravityComponent } from "../Friction";
 import { Drag } from "../Drag";
 import { GravitationalAttraction } from "../GravitationalAttraction";
-import { MoonMotion } from "../Scale";
+import { MoonMotion } from "../Transfer";
 
 
 export default function App() {
