@@ -71,15 +71,16 @@ export const MoonMotion: React.FC<ComponentProps> = (
 
     if (moonFocus) {
 
-      if (magnitute < moon.pos.mag()) magnitute += 10;
 
-      if (magnitute < moon.pos.mag()) focus.setMag(magnitute);
+      if (magnitute < moon.pos.mag()) {
+        magnitute += 10;
+        focus.setMag(magnitute);
+      }
       else { focus.x = moon.pos.x; focus.y = moon.pos.y; }
 
     } else {
-      if (magnitute > 0) magnitute -= 10;
       if (magnitute < 0) focus.setMag(0);
-      else focus.setMag(magnitute);
+      else { magnitute -= 10; focus.setMag(magnitute); }
     }
 
     if (zoom) {
