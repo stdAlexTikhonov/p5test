@@ -28,7 +28,7 @@ export const MoonMotion: React.FC<ComponentProps> = (
   let moonFocus: boolean = false;
   let showPath: boolean = false;
   let scale: number = 0.7;
-  let zoom: boolean = true;
+  let zoom: boolean = false;
 
 
 
@@ -127,9 +127,7 @@ export const MoonMotion: React.FC<ComponentProps> = (
 
   const handleShowPath = () => { showPath = !showPath; }
 
-  const handleScalePlus = () => { scale = scale < 40 ? scale + 1 : 40.7; }
 
-  const handleScaleMinus = () => { scale = scale > 1 ? scale - 1 : 0.7; }
 
   const toggleZoom = () => { zoom = !zoom; }
 
@@ -139,8 +137,6 @@ export const MoonMotion: React.FC<ComponentProps> = (
       <Button onClick={handleMoonClick}>to the moon</Button>
       <Button onClick={handleEarthClick}>Back to Earth</Button>
       <Button onClick={handleShowPath}>Toggle path</Button>
-      <Button onClick={handleScalePlus}>+</Button>
-      <Button onClick={handleScaleMinus}>-</Button>
       <Button onClick={toggleZoom}>ZOOM</Button>
     </Box>
 
