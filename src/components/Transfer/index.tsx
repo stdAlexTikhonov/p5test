@@ -71,6 +71,7 @@ export const MoonMotion: React.FC<ComponentProps> = (
 
     if (moonFocus) {
       if (magnitute < moon.pos.mag()) {
+        zoom = false;
         showPath = false;
         magnitute += 2;
         focus.setMag(magnitute);
@@ -83,6 +84,7 @@ export const MoonMotion: React.FC<ComponentProps> = (
     } else {
 
       if (magnitute > 0) {
+        zoom = false;
         showPath = false;
         magnitute -= 2;
         focus.setMag(magnitute);
@@ -96,7 +98,7 @@ export const MoonMotion: React.FC<ComponentProps> = (
     //   scale = scale > 1 ? scale - 0.1 : 0.7;
     // }
 
-    // if (zoom) scale = scale > 0.7 ? scale - 0.1 : 0.7;
+    if (zoom) scale = scale > 0.7 ? scale - 0.1 : 0.7;
 
     const transformed_x = p5.width / 2 - focus.x * scale;
     const transformed_y = p5.height / 2 - focus.y * scale;
