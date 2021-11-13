@@ -1,13 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import { RandomWalker } from "../RandomWalker";
-import { RandomVectors } from "../RandomVectors";
-import { MoverComponent } from "../Mover";
-import { GravityComponent } from "../Friction";
-import { Drag } from "../Drag";
-import { GravitationalAttraction } from "../GravitationalAttraction";
 import { MoonMotion } from "../Transfer";
-
 
 
 export default function App() {
