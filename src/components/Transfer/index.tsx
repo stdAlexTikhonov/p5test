@@ -75,7 +75,6 @@ export const MoonMotion: React.FC<ComponentProps> = (
         showPath = false;
         magnitute += 2;
         focus.setMag(magnitute);
-        scale += 0.01
       } else {
         focus.x = moon.pos.x;
         focus.y = moon.pos.y;
@@ -88,17 +87,13 @@ export const MoonMotion: React.FC<ComponentProps> = (
         showPath = false;
         magnitute -= 2;
         focus.setMag(magnitute);
-        scale += 0.01;
       } else { focus.setMag(0); }
     }
 
-    // if (zoom) {
-    //   scale = scale < 40 ? scale + 0.1 : 40.7;
-    // } else {
-    //   scale = scale > 1 ? scale - 0.1 : 0.7;
-    // }
+
 
     if (zoom) scale = scale > 0.7 ? scale - 0.1 : 0.7;
+    else scale = scale < 30 ? scale + 0.01 : scale;
 
     const transformed_x = p5.width / 2 - focus.x * scale;
     const transformed_y = p5.height / 2 - focus.y * scale;
@@ -124,15 +119,15 @@ export const MoonMotion: React.FC<ComponentProps> = (
 
   };
 
-  const handleMoonClick = (e: any) => { e.stopPropagation(); moonFocus = true; }
+  const handleMoonClick = (e: any) => { e.stopPropagation(); moonFocus = true; zoom = true; }
 
-  const handleEarthClick = (e: any) => { e.stopPropagation(); moonFocus = false; }
+  const handleEarthClick = (e: any) => { e.stopPropagation(); moonFocus = false; zoom = true; }
 
   const handleShowPath = () => { showPath = !showPath; }
 
 
 
-  const toggleZoom = () => { zoom = !zoom; }
+  const toggleZoom = () => { zoom = true; }
 
   return <>
     <Sketch setup={setup} draw={draw} />
@@ -140,7 +135,7 @@ export const MoonMotion: React.FC<ComponentProps> = (
       <Button onClick={handleMoonClick}>to the moon</Button>
       <Button onClick={handleEarthClick}>Back to Earth</Button>
       <Button onClick={handleShowPath}>Toggle path</Button>
-      <Button onClick={toggleZoom}>ZOOM</Button>
+      <Button onClick={toggleZoom}>Zoom out</Button>
     </Box>
 
   </>;
