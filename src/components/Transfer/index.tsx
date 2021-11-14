@@ -63,6 +63,16 @@ export const MoonMotion: React.FC<ComponentProps> = (
     canvas.style.top = '0';
     canvas.style.left = '0';
 
+    canvas.onclick = () => {
+
+      if (moonFocus) {
+        alert('moon clicked');
+      }
+      else {
+        alert('earth clicked');
+      }
+    }
+
   };
 
   const draw = (p5: p5Types) => {
