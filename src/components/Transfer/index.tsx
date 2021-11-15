@@ -5,6 +5,7 @@ import { Earth } from "./Earth";
 import { Moon } from "./Moon";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import { useNavigate } from "react-router-dom";
 
 interface ComponentProps {
   //Your component props
@@ -19,6 +20,7 @@ export const MoonMotion: React.FC<ComponentProps> = (
   //   x: 0,
   //   y: 0
   // });
+  const navigate = useNavigate();
 
   let earth: Earth;
   let moon: Moon;
@@ -66,10 +68,10 @@ export const MoonMotion: React.FC<ComponentProps> = (
     canvas.onclick = () => {
 
       if (moonFocus) {
-        alert('moon clicked');
+        navigate('/moon');
       }
       else {
-        alert('earth clicked');
+        navigate('/earth');
       }
     }
 

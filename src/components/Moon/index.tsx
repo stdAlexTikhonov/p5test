@@ -7,12 +7,11 @@ interface ComponentProps {
     //Your component props
 }
 
-export const Earth: React.FC<ComponentProps> = (
+export const Moon: React.FC<ComponentProps> = (
     props: ComponentProps
 ) => {
     //See annotations in JS for more information
     const navigate = useNavigate();
-
     const setup = (p5: p5Types, canvasParentRef: Element) => {
         p5.createCanvas(window.innerWidth / 2, window.innerHeight - 100).parent(
             canvasParentRef
@@ -25,6 +24,7 @@ export const Earth: React.FC<ComponentProps> = (
         canvas.onclick = () => {
             navigate('/')
         }
+
     };
 
     const draw = (p5: p5Types) => {
